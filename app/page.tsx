@@ -407,7 +407,7 @@ Train with AURA that adapts to your role, analyzes your responses, and highlight
           <div className={`${instrumentSerif.className} text-xl font-bold text-primary`}>AURA AI</div>
           <div>
             <a 
-              href="https://github.com" 
+              href="https://github.com/Deb-Karmakar/AURA-AI" 
               target="_blank" 
               rel="noopener noreferrer"
               className={`${instrumentSerif.className} border border-white/20 hover:border-primary text-white hover:text-primary bg-transparent px-6 py-2 transition-all duration-300 text-base font-medium`}
