@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AURA AI - Master Your Next Interview with AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error-container": "#ffdad6",
+                      "surface-container-low": "#1c1b1b",
+                      "inverse-primary": "#006970",
+                      "surface-container-high": "#2a2a2a",
+                      "secondary-fixed": "#e9ddff",
+                      "on-primary-container": "#006970",
+                      "on-tertiary": "#313030",
+                      "surface-container-highest": "#353534",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "on-secondary-container": "#ddcdff",
+                      "primary-fixed": "#7df4ff",
+                      "inverse-surface": "#e5e2e1",
+                      "surface-dim": "#131313",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "on-secondary-fixed": "#23005b",
+                      "on-primary": "#00363a",
+                      "surface-container": "#201f1f",
+                      "tertiary-fixed": "#e5e2e1",
+                      "surface-bright": "#3a3939",
+                      "secondary": "#d1bcff",
+                      "surface": "#131313",
+                      "outline": "#849495",
+                      "surface-container-lowest": "#0e0e0e",
+                      "tertiary-container": "#dcd9d8",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "tertiary": "#f8f5f5",
+                      "on-secondary": "#3c0090",
+                      "on-surface": "#e5e2e1",
+                      "on-secondary-fixed-variant": "#5700c9",
+                      "error": "#ffb4ab",
+                      "background": "#131313",
+                      "primary": "#dbfcff",
+                      "secondary-fixed-dim": "#d1bcff",
+                      "on-background": "#e5e2e1",
+                      "inverse-on-surface": "#313030",
+                      "primary-fixed-dim": "#00dbe9",
+                      "surface-tint": "#00dbe9",
+                      "outline-variant": "#3b494b",
+                      "on-tertiary-container": "#5f5e5e",
+                      "error-container": "#93000a",
+                      "secondary-container": "#7000ff",
+                      "on-surface-variant": "#b9cacb",
+                      "on-primary-fixed-variant": "#004f54",
+                      "primary-container": "#00f0ff",
+                      "surface-variant": "#353534",
+                      "on-error": "#690005",
+                      "on-primary-fixed": "#002022"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px",
+                      "unit": "8px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Space Grotesk"
+                      ],
+                      "label-caps": [
+                              "JetBrains Mono"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Space Grotesk"
+                      ],
+                      "display-lg": [
+                              "Space Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: #050505; /* Level 0 base as per guidance */
+            color: #e5e2e1;
+        }
+        .glow-effect {
+            box-shadow: 0px 0px 15px rgba(0, 240, 255, 0.2);
+        }
+        .glow-effect:hover {
+            box-shadow: 0px 0px 25px rgba(0, 240, 255, 0.4);
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.5); /* Level 2 surface */
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #dbfcff, #00dbe9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md bg-surface-container-lowest antialiased overflow-x-hidden min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="bg-background/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-[0px_0px_15px_rgba(0,219,233,0.1)]">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-primary tracking-tighter">
+                AURA AI
+            </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Capabilities</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Pricing</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Solutions</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="hidden md:block text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Sign In</a>
+<a class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-medium hover:scale-95 transition-transform glow-effect" href="#">Get Started</a>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-24">
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center justify-center px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="absolute inset-0 bg-grid-pattern opacity-50"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card mb-8">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest">AURA ENGINE 2.0 LIVE</span>
+</div>
+<h1 class="font-display-lg text-[40px] leading-[48px] md:text-display-lg text-on-surface mb-6 tracking-tight">
+                    Master Your Next Interview <br class="hidden md:block"/> with <span class="text-gradient">Precision AI</span>
+</h1>
+<p class="font-body-md text-body-md md:text-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                    Experience the future of interview preparation. Our proprietary machine learning models analyze your responses, tone, and pacing in real-time to give you the executive edge.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-medium hover:scale-95 transition-all duration-300 glow-effect text-lg w-full sm:w-auto">
+                        Get Started for Free
+                    </button>
+<button class="glass-card text-on-surface px-8 py-4 rounded-full font-medium hover:bg-white/5 transition-colors duration-300 text-lg w-full sm:w-auto flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">play_circle</span>
+                        See How It Works
+                    </button>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-10">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Unrivaled Analytical Depth</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto">Beyond basic feedback, Aura provides granular insights into every dimension of your performance.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-unit auto-rows-[minmax(300px,_auto)]">
+<!-- Real-time Feedback (Large Card) -->
+<div class="glass-card rounded-2xl p-8 md:col-span-8 flex flex-col justify-between overflow-hidden relative group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary-container/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="relative z-10">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high border border-white/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">graphic_eq</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Real-time Feedback</h3>
+<p class="text-on-surface-variant max-w-md">Immediate, contextual analysis on pacing, filler words, and vocal confidence as you speak.</p>
+</div>
+<div class="relative z-10 mt-8 h-48 w-full border border-white/5 rounded-xl bg-surface overflow-hidden" data-alt="A sleek, high-tech dark mode user interface dashboard showing a real-time audio waveform visualization. The waveform is glowing cyan and teal, set against a deep black background. Small, floating analytical tags in monospaced font point to different peaks in the audio, indicating 'Confidence: 94%' and 'Pacing: Optimal'. The overall mood is advanced, analytical, and highly professional." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvUYDxLs9aG50ViJOQj2UPwh5NIFIg82oeXoIFGKnOuVzeO-Hz2VNBr0jX_WbChJ9dMQsv_4Mu3FGu_io5Et4A9cln8xevnr8-oIS504AgYbmVEobC6z_S2kYdm1HZQ1wcpGyvwY8hnKOVRHKgNezCLJt-rf1Tw1e4MSDyhphXpbdOYenoAvIG4zSaOfqUptgtGVbVPOIgeeLhrdFyIe1EfxxQaZzq42NdmRqmBrBkL62pVSRkpJAjONbt9xzdeFnpaVFlIthlBKU9')">
+<!-- Image injected via placeholder/data-alt -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-50"></div>
+</div>
+</div>
+<!-- Industry Specific (Small Card) -->
+<div class="glass-card rounded-2xl p-8 md:col-span-4 flex flex-col justify-between relative group">
+<div class="absolute inset-0 bg-gradient-to-bl from-primary-container/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="relative z-10">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high border border-white/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary">work</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Industry-Specific Mock Interviews</h3>
+<p class="text-on-surface-variant">Questions sourced from recent executive searches and tailored to specific high-growth sectors.</p>
+</div>
+<div class="mt-8 flex flex-wrap gap-2 relative z-10">
+<span class="px-3 py-1 rounded border border-white/10 bg-white/5 font-label-caps text-label-caps text-on-surface-variant">FINTECH</span>
+<span class="px-3 py-1 rounded border border-white/10 bg-white/5 font-label-caps text-label-caps text-on-surface-variant">SAAS</span>
+<span class="px-3 py-1 rounded border border-white/10 bg-white/5 font-label-caps text-label-caps text-on-surface-variant">AI/ML</span>
+<span class="px-3 py-1 rounded border border-primary/30 bg-primary/10 font-label-caps text-label-caps text-primary">EXECUTIVE</span>
+</div>
+</div>
+<!-- Performance Analytics (Wide Card) -->
+<div class="glass-card rounded-2xl p-8 md:col-span-12 flex flex-col md:flex-row items-center gap-12 relative group overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="flex-1 relative z-10">
+<div class="w-12 h-12 rounded-xl bg-surface-container-high border border-white/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary">insights</span>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Performance Analytics</h3>
+<p class="text-on-surface-variant mb-6">Track your progression across multiple sessions. Our multidimensional scoring model breaks down clarity, structure, and emotional resonance to help you master the nuance of high-stakes communication.</p>
+<a class="text-primary font-medium hover:underline flex items-center gap-2" href="#">
+                            View Sample Report
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="flex-1 w-full h-64 rounded-xl border border-white/5 bg-surface relative z-10 overflow-hidden" data-alt="A dark-themed, sophisticated data visualization chart. The chart features a radar or spider web layout displaying multiple metrics like 'Clarity', 'Empathy', 'Structure', and 'Impact'. The data polygon is filled with a translucent cyan gradient, and the lines are crisp and bright. The background is a sleek, minimalist black surface with subtle grid lines. The aesthetic represents high-end enterprise software analytics." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDAp7UR_XIFnnrv0ucNsISvQcPsbtoVETUdH43n7EnpwbdBEdm1VImlpCYkFSxuwJXrSywGekjQ6dwgfcw7qICsYcgmbsl66-fjGQlgBqYho-nsanF21PqLDI-pnMvgrziRBeFQcKqkrZ_Yp3JYHyWL7_KcUn1aKoOD5NpYsM_KCP7CYQMW6o7BwhV4-UWtm2PD_R_sN8qFb_IE1n7MIum2T8D7eCFJkonEZmwwZEGly6-thQe1h_NwXuykiCy5yyBb1add_NXghAaN')">
+<!-- Image injected via placeholder/data-alt -->
+<div class="absolute inset-0 shadow-[inset_0_0_40px_rgba(5,5,5,0.8)]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop relative z-10 bg-surface">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Simple, Transparent Access</h2>
+<p class="text-on-surface-variant mb-12">One tier for absolute premium performance preparation.</p>
+<div class="glass-card rounded-3xl p-1 relative overflow-hidden inline-block w-full max-w-md mx-auto text-left">
+<!-- Glowing Border Effect -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary via-transparent to-primary/20 opacity-30"></div>
+<div class="relative bg-surface-container-low rounded-[23px] p-8 md:p-10 h-full flex flex-col">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Premium Tier</h3>
+<p class="text-on-surface-variant mt-1">For serious candidates</p>
+</div>
+<span class="px-3 py-1 rounded bg-primary/10 border border-primary/20 text-primary font-label-caps text-label-caps">UNLIMITED</span>
+</div>
+<div class="mb-8">
+<span class="font-display-lg text-display-lg text-on-surface">$49</span>
+<span class="text-on-surface-variant">/month</span>
+</div>
+<ul class="space-y-4 mb-10 flex-grow">
+<li class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Unlimited AI mock interviews
+                            </li>
+<li class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Real-time behavioral analysis
+                            </li>
+<li class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Historical performance tracking
+                            </li>
+<li class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span>
+                                Access to executive-level scenarios
+                            </li>
+</ul>
+<button class="w-full bg-primary-container text-on-primary-container py-4 rounded-xl font-medium hover:scale-[0.98] transition-transform glow-effect">
+                            Start Premium Trial
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-background w-full py-12 border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-6 md:gap-0">
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">
+                AURA AI
+            </div>
+<div class="flex flex-wrap justify-center gap-6 md:gap-8">
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">AI Ethics</a>
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary hover:underline opacity-80 hover:opacity-100 transition-opacity" href="#">Contact</a>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm text-center md:text-right">
+                © 2024 AURA AI recruitment. Precision driven.
+            </div>
+</div>
+</footer>
+</body></html>
