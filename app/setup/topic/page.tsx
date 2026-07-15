@@ -1,17 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Plus, X, ArrowLeft, Loader2, Code2 } from "lucide-react";
+import { Plus, X, ArrowLeft, Loader2, Code2, Key } from "lucide-react";
 
 export default function TopicSetupPage() {
   const [currentTag, setCurrentTag] = useState("");
+  const [showKeyAlert, setShowKeyAlert] = useState(false);
   const [tags, setTags] = useState<string[]>([]);
   const [difficulty, setDifficulty] = useState<"Easy" | "Medium" | "Hard">("Medium");
   const [includeCodingRound, setIncludeCodingRound] = useState(false);
   const [duration, setDuration] = useState<5 | 10 | 30>(10);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const key = localStorage.getItem("ai_interviewer_api_key");
+    if (!key) {
+      setShowKeyAlert(true);
+    }
+  }, []);
 
   const handleAddTag = () => {
     if (currentTag.trim() && !tags.includes(currentTag.trim())) {
@@ -60,6 +68,35 @@ export default function TopicSetupPage() {
 
   return (
     <div className="bg-background text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container relative">
+      {showKeyAlert && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+          <div className="bg-surface-container border border-white/10 rounded-3xl p-8 max-w-md w-full shadow-2xl animate-in fade-in zoom-in-95 duration-300">
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+              <Key className="w-8 h-8 text-primary" />
+            </div>
+            <h3 className="font-headline-lg text-2xl font-bold text-on-surface text-center mb-3">API Key Required</h3>
+            <p className="font-body-md text-on-surface-variant text-center mb-8">
+              You need to configure your BYOK (Bring Your Own Key) settings with OpenAI, Gemini, or Claude before starting an interview.
+            </p>
+            <div className="flex gap-4 font-body-md">
+              <button 
+                type="button"
+                onClick={() => router.push("/")} 
+                className="flex-1 px-4 py-3 rounded-xl border border-white/10 text-on-surface hover:bg-white/5 transition-colors font-medium"
+              >
+                Go Back
+              </button>
+              <button 
+                type="button"
+                onClick={() => router.push("/settings")} 
+                className="flex-1 px-4 py-3 rounded-xl bg-primary text-on-primary hover:bg-primary-fixed-dim transition-colors font-medium shadow-[0_0_15px_rgba(0,219,233,0.2)]"
+              >
+                Settings
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Ambient Background Glow */}
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary-container/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
       

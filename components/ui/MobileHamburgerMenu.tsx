@@ -45,7 +45,7 @@ export default function MobileHamburgerMenu() {
             <button 
               onClick={() => {
                 setIsOpen(false);
-                import("next-auth/react").then((mod) => mod.signOut());
+                import("next-auth/react").then((mod) => mod.signOut({ callbackUrl: "/" }));
               }} 
               className="text-error hover:text-error/80 transition-colors text-left animate-in fade-in slide-in-from-bottom-8 duration-500 delay-[600ms] fill-mode-both mt-8"
             >

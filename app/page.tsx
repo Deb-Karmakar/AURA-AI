@@ -96,7 +96,7 @@ export default async function Home() {
           {/* Footer Links */}
           <div className="px-8 border-t border-white/5 pt-6 flex flex-col gap-4">
 
-            <form action={async () => { "use server"; await signOut(); }} className="w-full">
+            <form action={async () => { "use server"; await signOut({ redirectTo: "/" }); }} className="w-full">
               <button type="submit" className="text-on-surface-variant hover:text-error transition-colors flex items-center gap-3 cursor-pointer w-full text-left">
                 
                 <span className="font-body-sm text-sm">Logout</span>

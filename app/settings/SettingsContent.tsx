@@ -158,7 +158,7 @@ export default function SettingsPage() {
         
         <div className="px-8 border-t border-white/5 pt-6 flex flex-col gap-4">
 
-          <button onClick={() => signOut()} className="text-on-surface-variant hover:text-error transition-colors flex items-center gap-3 cursor-pointer w-full text-left">
+          <button onClick={() => signOut({ callbackUrl: "/" })} className="text-on-surface-variant hover:text-error transition-colors flex items-center gap-3 cursor-pointer w-full text-left">
             <span className="font-body-sm text-sm">Logout</span>
           </button>
         </div>
