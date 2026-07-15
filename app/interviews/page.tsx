@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import { auth, signOut } from "@/auth";
+import { notFound } from "next/navigation";
 import connectToDatabase from "@/lib/db/mongodb";
 import Interview from "@/lib/db/models/Interview";
 import { 
@@ -18,11 +19,7 @@ export default async function InterviewsPage(props: { searchParams: Promise<{ pa
   const session = await auth();
   
   if (!session) {
-    return (
-      <div className="flex h-screen items-center justify-center bg-background text-on-surface">
-        <p>Please log in to view your interviews.</p>
-      </div>
-    );
+    notFound();
   }
 
   await connectToDatabase();

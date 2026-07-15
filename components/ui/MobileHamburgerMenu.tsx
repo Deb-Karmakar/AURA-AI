@@ -42,6 +42,15 @@ export default function MobileHamburgerMenu() {
             <Link href="/settings" onClick={() => setIsOpen(false)} className="text-on-surface hover:text-primary transition-colors animate-in fade-in slide-in-from-bottom-8 duration-500 delay-500 fill-mode-both">
               Settings
             </Link>
+            <button 
+              onClick={() => {
+                setIsOpen(false);
+                import("next-auth/react").then((mod) => mod.signOut());
+              }} 
+              className="text-error hover:text-error/80 transition-colors text-left animate-in fade-in slide-in-from-bottom-8 duration-500 delay-[600ms] fill-mode-both mt-8"
+            >
+              Logout
+            </button>
           </nav>
         </div>,
         document.body
