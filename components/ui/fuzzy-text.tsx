@@ -51,7 +51,7 @@ const FuzzyText = React.forwardRef<
   useEffect(() => {
     let animationFrameId: number
     let isCancelled = false
-    const canvas = canvasRef.current
+    const canvas = canvasRef.current as HTMLCanvasElement & { cleanupFuzzyText?: () => void }
     if (!canvas) return
 
     // Clean up previous animation if it exists
