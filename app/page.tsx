@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/ui/Logo";
 import { auth, signIn, signOut } from "@/auth";
 import connectToDatabase from "@/lib/db/mongodb";
 import Interview from "@/lib/db/models/Interview";
@@ -9,6 +10,7 @@ import {
 } from "lucide-react";
 import DarkVeil from "@/components/ui/DarkVeil";
 import { Instrument_Serif } from "next/font/google";
+import MobileHamburgerMenu from "@/components/ui/MobileHamburgerMenu";
 
 const instrumentSerif = Instrument_Serif({ subsets: ["latin"], weight: ["400"], style: ["normal", "italic"], display: "swap" });
 
@@ -37,17 +39,15 @@ export default async function Home() {
         
         {/* Mobile Top Header Fallback */}
         <header className="md:hidden flex justify-between items-center p-4 w-full fixed top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-white/10">
-          <div className={`${instrumentSerif.className} text-headline-lg-mobile font-bold text-primary tracking-tighter`}>AURA AI</div>
-          <button className="text-on-surface-variant hover:text-primary transition-colors">
-            <LayoutDashboard className="w-6 h-6" />
-          </button>
+          <Logo className="text-2xl" />
+          <MobileHamburgerMenu />
         </header>
 
         {/* SideNavBar (Desktop Only) */}
         <nav className="hidden md:flex flex-col h-screen py-8 bg-surface-container-lowest w-64 fixed left-0 top-0 border-r border-white/5 z-40">
           {/* Brand */}
           <div className="px-8 mb-8">
-            <div className={`${instrumentSerif.className} text-headline-lg text-primary font-bold tracking-tighter`}>AURA AI</div>
+            <Logo className="text-3xl" />
           </div>
           
           {/* User Profile Header */}
@@ -65,25 +65,21 @@ export default async function Home() {
             <li>
               <Link href="/" className="bg-secondary/20 text-primary border-r-4 border-primary rounded-r-xl py-3 px-8 flex items-center gap-4 cursor-pointer scale-[0.98] transition-all relative overflow-hidden group">
                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <LayoutDashboard className="w-5 h-5 relative z-10" />
                 <span className="font-body-md text-body-md font-medium relative z-10">Dashboard</span>
               </Link>
             </li>
             <li>
               <Link href="/interviews" className="text-on-surface-variant hover:bg-white/5 hover:bg-surface-variant/50 py-3 px-8 transition-all flex items-center gap-4 cursor-pointer group rounded-r-xl">
-                <Video className="w-5 h-5 group-hover:text-primary transition-colors duration-300" />
                 <span className="font-body-md text-body-md group-hover:text-primary transition-colors duration-300">Interviews</span>
               </Link>
             </li>
             <li>
               <Link href="/analytics" className="text-on-surface-variant hover:bg-white/5 hover:bg-surface-variant/50 py-3 px-8 transition-all flex items-center gap-4 cursor-pointer group rounded-r-xl">
-                <BarChart3 className="w-5 h-5 group-hover:text-primary transition-colors duration-300" />
                 <span className="font-body-md text-body-md group-hover:text-primary transition-colors duration-300">Analytics</span>
               </Link>
             </li>
             <li>
               <Link href="/settings" className="text-on-surface-variant hover:bg-white/5 hover:bg-surface-variant/50 py-3 px-8 transition-all flex items-center gap-4 cursor-pointer group rounded-r-xl">
-                <Settings className="w-5 h-5 group-hover:text-primary transition-colors duration-300" />
                 <span className="font-body-md text-body-md group-hover:text-primary transition-colors duration-300">Settings</span>
               </Link>
             </li>
@@ -92,7 +88,7 @@ export default async function Home() {
           {/* Primary CTA */}
           <div className="px-8 mb-6 mt-auto">
             <Link href="/setup/topic" className="w-full py-3 px-4 bg-primary/10 text-primary border border-primary/30 rounded-xl font-body-md text-body-md font-medium flex items-center justify-center gap-2 hover:bg-primary/20 hover:border-primary/50 hover:shadow-[0px_0px_15px_rgba(219,252,255,0.2)] transition-all duration-300 group">
-              <PlusCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              
               Start Practice
             </Link>
           </div>
@@ -102,7 +98,7 @@ export default async function Home() {
 
             <form action={async () => { "use server"; await signOut(); }} className="w-full">
               <button type="submit" className="text-on-surface-variant hover:text-error transition-colors flex items-center gap-3 cursor-pointer w-full text-left">
-                <LogOut className="w-4 h-4" />
+                
                 <span className="font-body-sm text-sm">Logout</span>
               </button>
             </form>
@@ -115,7 +111,7 @@ export default async function Home() {
             
             {/* Dashboard Header */}
             <header className="mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-              <h1 className={`${instrumentSerif.className} text-4xl md:text-5xl text-on-surface font-bold tracking-tight`}>
+              <h1 className={`font-headline-lg text-4xl md:text-5xl text-on-surface font-bold tracking-tight`}>
                 Welcome back, <span className="text-primary">{session.user?.name?.split(' ')[0]}</span>
               </h1>
               <p className="font-body-md text-lg text-on-surface-variant mt-2 max-w-2xl">
@@ -130,15 +126,13 @@ export default async function Home() {
               <Link href="/setup/topic" className="lg:col-span-8 bg-surface-container/60 backdrop-blur-2xl rounded-3xl p-8 md:p-12 relative overflow-hidden border border-white/5 hover:border-white/10 flex flex-col justify-between group transition-all">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 transition-all duration-700 group-hover:bg-primary/20"></div>
                 <div className="relative z-10 max-w-md">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary mb-6">
-                    <BrainCircuit className="w-6 h-6" />
-                  </div>
-                  <h2 className={`${instrumentSerif.className} text-3xl text-on-surface mb-3 font-semibold`}>Initiate AI Simulation</h2>
+                  
+                  <h2 className={`font-headline-lg text-3xl text-on-surface mb-3 font-semibold`}>Initiate AI Simulation</h2>
                   <p className="font-body-md text-on-surface-variant mb-8">
                     Configure a high-stress scenario tailored to your upcoming roles. The neural engine is primed for technical deep-dives.
                   </p>
                   <div className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-on-primary rounded-xl font-medium hover:bg-primary-fixed-dim hover:shadow-[0_0_25px_rgba(219,252,255,0.4)] transition-all duration-300 transform group-hover:-translate-y-0.5">
-                    <PlayCircle className="w-5 h-5" />
+                    
                     Start Topic Interview
                   </div>
                 </div>
@@ -151,15 +145,13 @@ export default async function Home() {
               <Link href="/setup/resume" className="lg:col-span-4 bg-surface-container-high/40 backdrop-blur-xl rounded-3xl p-8 border border-white/5 hover:border-white/10 flex flex-col items-center justify-center text-center group transition-all relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative z-10 w-full flex flex-col items-center">
-                  <div className="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center border border-white/10 mb-6 group-hover:border-primary/30 transition-colors">
-                    <Briefcase className="w-8 h-8 text-on-surface-variant group-hover:text-primary transition-colors" />
-                  </div>
-                  <h3 className={`${instrumentSerif.className} text-2xl text-on-surface font-semibold mb-3`}>Resume Based</h3>
+                  
+                  <h3 className={`font-headline-lg text-2xl text-on-surface font-semibold mb-3`}>Resume Based</h3>
                   <p className="font-body-md text-on-surface-variant mb-8 text-sm">
                     Upload your resume for a highly tailored mock interview specific to your experience.
                   </p>
                   <div className="inline-flex items-center gap-2 px-6 py-3 bg-surface-container border border-white/10 text-on-surface rounded-xl font-medium hover:text-primary hover:border-primary/50 transition-colors w-full justify-center">
-                    Upload Resume <ArrowRight className="w-4 h-4" />
+                    Upload Resume <span className="font-data-mono ml-2">-&gt;</span>
                   </div>
                 </div>
               </Link>
@@ -167,15 +159,15 @@ export default async function Home() {
               {/* Upcoming / Past Interviews Section */}
               <div className="lg:col-span-12 bg-surface-container-low/50 backdrop-blur-md rounded-3xl p-8 border border-white/5 mt-2">
                 <div className="flex items-center justify-between mb-8">
-                  <h3 className={`${instrumentSerif.className} text-2xl text-on-surface font-semibold`}>Your Past Interviews</h3>
+                  <h3 className={`font-headline-lg text-2xl text-on-surface font-semibold`}>Your Past Interviews</h3>
                   <Link href="/interviews" className="text-on-surface-variant hover:text-primary text-sm font-medium transition-colors flex items-center gap-1">
-                    View All <ArrowRight className="w-4 h-4" />
+                    View All <span className="font-data-mono ml-2">-&gt;</span>
                   </Link>
                 </div>
                 
                 {interviews.length === 0 ? (
                   <div className="p-12 border border-dashed border-white/10 rounded-2xl text-center bg-surface-container/20">
-                    <Activity className="w-10 h-10 text-on-surface-variant mx-auto mb-4 opacity-50" />
+                    
                     <p className="text-on-surface-variant text-lg">No interviews found. Start your first session above!</p>
                   </div>
                 ) : (
@@ -187,17 +179,11 @@ export default async function Home() {
                         className="group flex flex-col sm:flex-row sm:items-center justify-between p-5 rounded-2xl bg-surface/50 border border-white/5 hover:border-white/10 hover:bg-surface-bright/30 transition-all duration-300 cursor-pointer"
                       >
                         <div className="flex items-start sm:items-center gap-5">
-                          <div className="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center border border-white/10 group-hover:border-primary/30 transition-colors shrink-0">
-                            {int.interviewType === 'topic' ? (
-                              <BrainCircuit className="w-6 h-6 text-on-surface-variant group-hover:text-primary transition-colors" />
-                            ) : (
-                              <Briefcase className="w-6 h-6 text-on-surface-variant group-hover:text-primary transition-colors" />
-                            )}
-                          </div>
+                          
                           <div>
                             <h4 className="font-body-md text-lg font-semibold text-on-surface line-clamp-1">{int.interviewType === "topic" ? int.topic : int.role}</h4>
                             <div className="flex items-center gap-3 mt-1 font-data-mono text-xs text-on-surface-variant">
-                              <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {new Date(int.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                              <span className="flex items-center gap-1"> {new Date(int.createdAt).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                               <span className="w-1 h-1 rounded-full bg-white/20"></span>
                               <span className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest text-primary/80">{int.interviewType}</span>
                             </div>
@@ -208,7 +194,7 @@ export default async function Home() {
                             int.score !== undefined ? (
                               <>
                                 <span className="px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-400 text-[10px] uppercase tracking-widest font-bold border border-emerald-500/20">Completed</span>
-                                <span className={`${instrumentSerif.className} text-2xl font-bold text-primary ml-2`}>{int.score}</span>
+                                <span className={`font-headline-lg text-2xl font-bold text-primary ml-2`}>{int.score}</span>
                               </>
                             ) : (
                               <span className="px-3 py-1 rounded-md bg-rose-500/10 text-rose-400 text-[10px] uppercase tracking-widest font-bold border border-rose-500/20">Not Completed</span>
@@ -240,14 +226,12 @@ export default async function Home() {
       {/* TopNavBar */}
       <header className="bg-background/80 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-[0px_0px_15px_rgba(0,219,233,0.1)]">
         <div className="flex justify-between items-center px-4 md:px-10 py-4 max-w-7xl mx-auto">
-          <div className={`${instrumentSerif.className} text-2xl font-bold text-primary tracking-tighter`}>
-            AURA AI
-          </div>
+          <Logo className="text-2xl" />
           <div className="flex items-center gap-4">
             <form action={async () => { "use server"; await signIn(); }}>
               <button 
                 type="submit" 
-                className={`${instrumentSerif.className} border border-white/20 hover:border-primary text-white hover:text-primary bg-transparent px-6 py-2 transition-all duration-300 text-base font-medium`}
+                className={`font-headline-lg border border-white/20 hover:border-primary text-white hover:text-primary bg-transparent px-6 py-2 transition-all duration-300 text-base font-medium`}
               >
                 Get started
               </button>
@@ -285,12 +269,54 @@ Train with AURA that adapts to your role, analyzes your responses, and highlight
           </div>
         </section>
 
+        {/* BYOK Architecture Section */}
+        <section className="py-24 px-4 md:px-10 max-w-7xl mx-auto relative z-10 border-t border-white/5">
+          <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-16 text-left">
+            <div className="flex-1 max-w-xl">
+              <span className={`font-headline-lg font-bold text-sm text-primary uppercase tracking-widest block mb-4`}>
+                ENTERPRISE-GRADE PRIVACY
+              </span>
+              <h2 className={`${instrumentSerif.className} text-4xl md:text-6xl text-white font-normal leading-[1.1] mb-6`}>
+                Bring Your Own Key.<br />
+                <span className="text-primary italic">Absolute Control.</span>
+              </h2>
+              <p className="font-sans text-white/60 text-base md:text-lg mb-8 leading-relaxed">
+                We believe your interview data should remain yours. Connect your own OpenAI, Anthropic, or Gemini API keys to power the simulation engine. Zero platform markup, complete data sovereignty, and uncompromised privacy.
+              </p>
+              
+              <ul className="space-y-3 text-sm text-white/40 font-mono">
+                <li>• store keys securely in your local environment</li>
+                <li>• choose your preferred LLM provider</li>
+                <li>• open-source architecture for total transparency</li>
+              </ul>
+            </div>
+
+            <div className="flex-grow flex-1 flex flex-col gap-4 max-w-lg w-full relative group">
+              <div className="absolute inset-0 bg-primary/5 rounded-none blur-xl group-hover:bg-primary/10 transition-all duration-500"></div>
+              <div className="border border-white/10 bg-black/40 rounded-none overflow-hidden font-mono text-xs md:text-sm relative z-10">
+                <div className="border-b border-white/10 px-4 py-2 text-white/40 bg-white/5 flex justify-between items-center">
+                  <span>.env.local</span>
+                  <Settings className="w-4 h-4 text-white/40" />
+                </div>
+                <div className="p-6 space-y-2 text-white/80">
+                  <div><span className="text-white/40"># API Configuration</span></div>
+                  <div><span className="text-primary">OPENAI_API_KEY</span>=&quot;sk-proj-...&quot;</div>
+                  <div><span className="text-primary">ANTHROPIC_API_KEY</span>=&quot;sk-ant-...&quot;</div>
+                  <div><span className="text-primary">GOOGLE_GEMINI_KEY</span>=&quot;AIzaSy...&quot;</div>
+                  <div className="mt-4"><span className="text-white/40"># Data stays on your machine</span></div>
+                  <div><span className="text-primary">LOCAL_STORAGE</span>=&quot;true&quot;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Section 1: Side-by-Side Left/Right layout (Live Coding Round focus) */}
         <section className="py-24 px-4 md:px-10 max-w-7xl mx-auto relative z-10 border-t border-white/5">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-16 text-left">
             {/* Left side info */}
             <div className="flex-1 max-w-xl">
-              <span className={`${instrumentSerif.className} font-bold text-sm text-primary uppercase tracking-widest block mb-4`}>
+              <span className={`font-headline-lg font-bold text-sm text-primary uppercase tracking-widest block mb-4`}>
                 LIVE CODING SIMULATION
               </span>
               <h2 className={`${instrumentSerif.className} text-4xl md:text-6xl text-white font-normal leading-[1.1] mb-6`}>
@@ -404,13 +430,13 @@ Train with AURA that adapts to your role, analyzes your responses, and highlight
       {/* Footer */}
       <footer className="bg-background w-full py-12 border-t border-white/5 mt-auto">
         <div className="flex flex-col md:flex-row justify-between items-center px-4 md:px-10 max-w-7xl mx-auto gap-6 md:gap-0">
-          <div className={`${instrumentSerif.className} text-xl font-bold text-primary`}>AURA AI</div>
+          <div className={`font-headline-lg text-xl font-bold text-primary`}>AURA AI</div>
           <div>
             <a 
               href="https://github.com/Deb-Karmakar/AURA-AI" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`${instrumentSerif.className} border border-white/20 hover:border-primary text-white hover:text-primary bg-transparent px-6 py-2 transition-all duration-300 text-base font-medium`}
+              className={`font-headline-lg border border-white/20 hover:border-primary text-white hover:text-primary bg-transparent px-6 py-2 transition-all duration-300 text-base font-medium`}
             >
               GitHub
             </a>

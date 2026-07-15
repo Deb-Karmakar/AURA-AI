@@ -1,4 +1,6 @@
 import Link from "next/link";
+import MobileHamburgerMenu from "@/components/ui/MobileHamburgerMenu";
+import Logo from "@/components/ui/Logo";
 import { auth, signOut } from "@/auth";
 import connectToDatabase from "@/lib/db/mongodb";
 import Interview from "@/lib/db/models/Interview";
@@ -131,16 +133,14 @@ export default async function AnalyticsPage() {
       
       {/* Mobile Top Header Fallback */}
       <header className="md:hidden flex justify-between items-center p-4 w-full fixed top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-white/10">
-        <div className="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary tracking-tighter">AURA AI</div>
-        <button className="text-on-surface-variant hover:text-primary transition-colors">
-          <LayoutDashboard className="w-6 h-6" />
-        </button>
+        <Logo className="text-2xl" />
+        <MobileHamburgerMenu />
       </header>
 
       {/* SideNavBar (Desktop Only) */}
       <nav className="hidden md:flex flex-col h-screen py-8 bg-surface-container-lowest w-64 fixed left-0 top-0 border-r border-white/5 z-40">
         <div className="px-8 mb-8">
-          <div className="font-headline-lg text-headline-lg text-primary font-bold tracking-tighter">AURA AI</div>
+          <Logo className="text-3xl" />
         </div>
         
         <div className="px-8 mb-8 flex items-center gap-4">
@@ -155,24 +155,20 @@ export default async function AnalyticsPage() {
         <ul className="flex-1 flex flex-col gap-1 mt-4">
           <li>
             <Link href="/" className="text-on-surface-variant hover:bg-white/5 hover:bg-surface-variant/50 py-3 px-8 transition-all flex items-center gap-4 group rounded-r-xl">
-              <LayoutDashboard className="w-5 h-5 group-hover:text-primary transition-colors duration-300" />
               <span className="font-body-md text-body-md group-hover:text-primary transition-colors duration-300">Dashboard</span>
             </Link>
           </li>
           <li>
             <Link href="/interviews" className="text-on-surface-variant hover:bg-white/5 hover:bg-surface-variant/50 py-3 px-8 transition-all flex items-center gap-4 group rounded-r-xl">
-              <Video className="w-5 h-5 group-hover:text-primary transition-colors duration-300" />
               <span className="font-body-md text-body-md group-hover:text-primary transition-colors duration-300">Interviews</span>
             </Link>
           </li>
           <li className="bg-secondary/20 text-primary border-r-4 border-primary rounded-r-xl py-3 px-8 flex items-center gap-4 cursor-pointer scale-[0.98] transition-all relative overflow-hidden group">
             <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <BarChart3 className="w-5 h-5 relative z-10" />
             <span className="font-body-md text-body-md font-medium relative z-10">Analytics</span>
           </li>
           <li>
             <Link href="/settings" className="text-on-surface-variant hover:bg-white/5 hover:bg-surface-variant/50 py-3 px-8 transition-all flex items-center gap-4 group rounded-r-xl">
-              <Settings className="w-5 h-5 group-hover:text-primary transition-colors duration-300" />
               <span className="font-body-md text-body-md group-hover:text-primary transition-colors duration-300">Settings</span>
             </Link>
           </li>
@@ -180,7 +176,7 @@ export default async function AnalyticsPage() {
         
         <div className="px-8 mb-6 mt-auto">
           <Link href="/setup/topic" className="w-full py-3 px-4 bg-primary/10 text-primary border border-primary/30 rounded-xl font-body-md text-body-md font-medium flex items-center justify-center gap-2 hover:bg-primary/20 hover:border-primary/50 hover:shadow-[0px_0px_15px_rgba(219,252,255,0.2)] transition-all duration-300 group">
-            <PlusCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
+            
             Start Practice
           </Link>
         </div>
@@ -189,7 +185,7 @@ export default async function AnalyticsPage() {
 
           <form action={async () => { "use server"; await signOut(); }} className="w-full">
             <button type="submit" className="text-on-surface-variant hover:text-error transition-colors flex items-center gap-3 cursor-pointer w-full text-left">
-              <LogOut className="w-4 h-4" />
+              
               <span className="font-body-sm text-sm">Logout</span>
             </button>
           </form>
